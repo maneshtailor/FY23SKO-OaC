@@ -47,5 +47,9 @@ provider "aws" {
     secret_key = "my-secret-key"
 }
 
+# While this is a possible way to set-up your access credentials it's not advised
+# in production environments, as there's a chance the credentials are uploaded to git
+# When talking to customers it's best to suggest environment variables.
+
 # Go back to the `Part_1-Setting_up_an_AWS_EC2_instance.md` readme
 # once you think you're done with this file
