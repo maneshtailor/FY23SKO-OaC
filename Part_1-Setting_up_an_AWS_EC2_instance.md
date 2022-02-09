@@ -2,7 +2,7 @@
 
 ## Configure Terraform
 
-Open `providers.tf` and follow the instructions. Once you've done with the configuration you can test it with the following commands:
+Open `providers.tf` in your favorite editor and follow the instructions. Once you've done with the configuration you can test it with the following commands:
 
 ```shell
 # First we initiate Terraform to download the latest version of the providers
