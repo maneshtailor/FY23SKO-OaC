@@ -28,28 +28,18 @@ terraform {
     }
 }
 
+
 # After we've downloaded the latest version of the New Relic provider, we need to
-# configure it with the right API keys. Create a User Key for your New Relic SKO
-# account (username+FY230SKO@newrelic.com), and add it here with your account ID:
-# https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/#user-api-key
-provider "newrelic" {
-    api_key = "my-api-key"
-    account_id = 0
-    region = "US" # US or EU
-}
-
-# And we do the same for AWS.
-# https://aws.amazon.com/blogs/security/wheres-my-secret-access-key/
-# TODO: Do we share them keys? they could all use the same theoretically
+# configure it with the right API keys. Although we have the option to do it here
+# directly that's considered a bad practice. Because Terraform files are usually
+# added to a source control system like Git, it could mean that credentials become
+# exposed to anyone that has access to that system. So we just say that we want to
+# use New Relic and AWS.
+provider "newrelic" { }
 provider "aws" {
-    region = "us-east-1"
-    access_key = "my-access-key"
-    secret_key = "my-secret-key"
+    region = var.aws_region
 }
-
-# While this is a possible way to set-up your access credentials it's not advised
-# in production environments, as there's a chance the credentials are uploaded to git
-# When talking to customers it's best to suggest environment variables.
 
 # Go back to the `Part_1-Setting_up_an_AWS_EC2_instance.md` readme
-# once you think you're done with this file
+# once you think you're done with this file and learn how to set up your
+# authentication credentials

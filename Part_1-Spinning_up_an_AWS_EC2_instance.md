@@ -2,10 +2,19 @@
 
 ## Configure Terraform
 
-Open `providers.tf` in your favorite editor and follow the instructions. Once you've done with the configuration you can test it with the following commands:
+Open `providers.tf` in your favorite editor and follow the instructions. Once you're done that we need to set-up our authentication credentials. Run the commands below to create your own configuration file:
+
+```
+cp configuration.sh.example configuration.sh
+```
+
+Open `configuration.sh` in your favorite editor and follow the instructions to configure your authentication credentials. Once you're done run the following commands:
 
 ```shell
-# First we initiate Terraform to download the latest version of the providers
+# First we load your configuration settings, it should output your New Relic Account ID
+source ./configuration.sh
+
+# Second we initiate Terraform to download the latest version of the providers
 terraform init
 
 # Now let's test our credentials and see if everything is configured correctly
@@ -48,11 +57,12 @@ commands will detect it and remind you to do so if necessary.
 
 and something like this for `terraform plan`:
 ```
+No changes. Your infrastructure matches the configuration.
 
+Terraform has compared your real infrastructure against your configuration and found no differences, so no changes are needed.
 ```
 
-If you get any errors like below, or others, double check your authentication parameters, or ask for help
-from your colleagues or the workshop staff.
+If you get any errors like below, or others, double check your authentication parameters, or ask for help from your colleagues or the workshop staff.
 
 ```
 │ Error: error initializing newrelic-client-go: must use at least one of: ConfigPersonalAPIKey, ConfigAdminAPIKey, ConfigInsightsInsertKey
@@ -61,3 +71,9 @@ from your colleagues or the workshop staff.
 │   on providers.tf line 35, in provider "newrelic":
 │   35: provider "newrelic" {
 ```
+
+## Spin up an EC2 instance
+
+Now that we've set-up our Terraform environment we look at spinning up an EC2 instance.
+
+**Not Ready**

@@ -1,1 +1,3 @@
 .terraform*
+configuration.sh
+terraform.*
