@@ -89,7 +89,7 @@ We need to tidy this up and configure it to our needs. Refer to the documentatio
 9. Delete `expiration_duration`, `open_violation_on_expiration` and `close_violations_on_expiration`. These settings control signal loss which we want to disable for this example.
 10. `slide_by': Set this to zero.
 11. `nrql > query`: This is an NRQL condition so we need to specify the NRQL here, set the value to: `select count(*) from tfdemo` (This "tfdemo" event type doesnt exist yet, we'll deal with that later.)
-12. In the `critcal` block set:
+12. In the `critical` block set:
     - the `threshold` to `0` and 
     - the `threshold_duration` to `120`
     - the `threshold_occurrences` to `at_least_once`
@@ -166,7 +166,7 @@ Everything is now setup and our alert policy and condition is diligently looking
 
 Update this command with a API License key and your account ID, then run it a few times in your terminal to generate data. You should shortly see your alert policy trigger.
 
-
+```
 curl -X POST -H "Content-Type: application/json" \
 -H "Api-Key: LICENSE-KEY-HERE" \
 https://insights-collector.newrelic.com/v1/accounts/ACCOUNT-ID-HERE/events \
@@ -176,5 +176,6 @@ https://insights-collector.newrelic.com/v1/accounts/ACCOUNT-ID-HERE/events \
     "apples":1
   }
 ]'
+```
 
 (Note this is for the US data centre)
