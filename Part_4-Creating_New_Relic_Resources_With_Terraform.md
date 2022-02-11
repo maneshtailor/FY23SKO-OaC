@@ -77,7 +77,7 @@ resource "newrelic_nrql_alert_condition" "foo" {
 
 We need to tidy this up and configure it to our needs. Refer to the documentation to understand all the configuration options.
 1. The resource  itself is called "foo" rename it to "demo"
-2. `account_id`: Set this value to `var.NEW_RELIC_ACCOUNT_ID`
+2. `account_id`: Set this value to `var.NEWRELIC_ACCOUNT_ID`
 3. `policy_id': This controls which policy the condition is a member of, we need to supply the ID of the policy we created above. To do this set the value to `newrelic_alert_policy.policy.id` (our policy resource is named "policy" not "foo"!)
 4. `name': Set this then name of the condition as it appears in New Relic. Set to something readable, e.g. "Demo alert condition". 
 5. Delete the `description` and `runbook_url` attributes, we won't use them today.
