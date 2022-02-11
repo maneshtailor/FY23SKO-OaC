@@ -79,15 +79,15 @@ resource "newrelic_nrql_alert_condition" "foo" {
 
 We need to tidy this up and configure it to our needs. Refer to the documentation to understand al lthe configuration options.
 1. The resource  itself is called "foo" rename it to "demo"
-2. `account_id:` Set this value to `var.NEW_RELIC_ACCOUNT_ID`
-3. `policy_id:` This controls which policy the condition is a member of, we need to supply the ID of the policy we created above. To do this set the value to `newrelic_alert_policy.policy.id` (our policy resource is named "policy" not "foo"!)
-4. `name:` Set this then name of the condition as it appears in New Relic. Set to something readable, e.g. "Demo alert condition". 
+2. `account_id': Set this value to `var.NEW_RELIC_ACCOUNT_ID`
+3. `policy_id': This controls which policy the condition is a member of, we need to supply the ID of the policy we created above. To do this set the value to `newrelic_alert_policy.policy.id` (our policy resource is named "policy" not "foo"!)
+4. `name': Set this then name of the condition as it appears in New Relic. Set to something readable, e.g. "Demo alert condition". 
 5. Delete the `description` and `runbook_url` attributes, we won't use them today.
-6. `aggregation_method:` Set this to `event_timer`
+6. `aggregation_method': Set this to `event_timer`
 7. Add an attirbute `aggregation_timer` with a value of `60`
 8. Delete `aggregation_delay` attribute
 9. Delete `expiration_duration`, `open_violation_on_expiration` and `close_violations_on_expiration`. These settings control signal loss which we want to disable for this example.
-10. `slide_by:` Set this to zero.
+10. `slide_by': Set this to zero.
 11. `nrql > query`: This is an NRQL condition so we need to specify the NRQL here, set the value to: `select count(*) from tfdemo` (This "tfdemo" event type doesnt exist yet, we'll deal with that later.)
 12. In the `critcal` block set:
     - the `threshold` to `0` and 
@@ -122,7 +122,7 @@ resource "newrelic_alert_channel" "foo" {
 As with the previous task we'll use this example code as a basis for our own and make changes accordingly. Update as follows:
 
 1. Change the resource name from "foo" to "sko_slack" (note the underscore here!)
-2. `name:` Set this to the value "YOURNAME SKO Slack Channel" - this is the name that will appear in the New Relic UI
+2. `name': Set this to the value "YOURNAME SKO Slack Channel" - this is the name that will appear in the New Relic UI
 3. `config.url` Set this to: `https://hooks.slack.com/services/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`
 4. `config.channel` Set this to `sko-oac`
 
@@ -142,7 +142,7 @@ resource "newrelic_alert_policy_channel" "foo" {
 As before lets update the example to suit our needs:
 
 1. Change the name of the resource from "foo" to "subscribe"
-2. `policy_id:` This is where we identify the policy we're adding the channel to, in this casew we need to reference the policy we created abiove. Set the value to: `newrelic_alert_policy.policy.id`
+2. `policy_id': This is where we identify the policy we're adding the channel to, in this casew we need to reference the policy we created abiove. Set the value to: `newrelic_alert_policy.policy.id`
 3. The `channel_ids` attribute is an array of channels. We only have one so set the value to reference our single channel like this: `[newrelic_alert_channel.sko_slack.id]`
 
 
