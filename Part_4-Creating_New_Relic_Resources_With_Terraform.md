@@ -7,8 +7,6 @@ Pre-requsites:
 2. A test New Relic account that you can create User and Ingest API tokens for
 
 ## Step 1: Configure terraform 
-You should already have the [providers.tf](./providers.tf) and [configuration.sh](./configuration.sh.example) file from previous exercises and terraform initialised. If not or you are starting from scratch follow the ["Configure Terraform" instructions](./Part_1-Spinning_up_an_AWS_EC2_instance.md) to get up and running.
-
 ## Step 2: Lights on the board
 Our first step is to make sure that everything is configured correctly. We'll create an alert policy in the account and confirm it appears. 
 
@@ -148,7 +146,7 @@ As before lets update the example to suit our needs:
 Apply this change with `terraform apply` and confirm in the UI that your alert poilicy now has a notification channel attached.
 
 ** Side note **
-Whilst we're here lets talk about resource referencing. In the step above we connected the alert policy resource we created initiall to the notification channel. When you refer to a resource in terraform you specify its attributes in the following format:
+Whilst we're here lets talk about resource referencing. In the step above we connected the alert policy resource we created initially to the notification channel. When you refer to a resource in terraform you specify its attributes in the following format:
 
 ```
 <resource_type>.<resource_name>.<attribute>
