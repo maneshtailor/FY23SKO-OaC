@@ -17,7 +17,7 @@ terraform {
         # the latest version
         newrelic = {
             source  = "newrelic/newrelic"
-            version = "~> 2.35.1"
+            version = "~> 2.36.2"
         }
 
         # We now do the same for AWS
