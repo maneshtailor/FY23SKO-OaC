@@ -77,7 +77,7 @@ resource "newrelic_nrql_alert_condition" "foo" {
 }
 ```
 
-We need to tidy this up and configure it to our needs. Refer to the documentation to understand al lthe configuration options.
+We need to tidy this up and configure it to our needs. Refer to the documentation to understand all the configuration options.
 1. The resource  itself is called "foo" rename it to "demo"
 2. `account_id`: Set this value to `var.NEW_RELIC_ACCOUNT_ID`
 3. `policy_id': This controls which policy the condition is a member of, we need to supply the ID of the policy we created above. To do this set the value to `newrelic_alert_policy.policy.id` (our policy resource is named "policy" not "foo"!)
@@ -94,7 +94,6 @@ We need to tidy this up and configure it to our needs. Refer to the documentatio
     - the `threshold_duration` to `120`
     - the `threshold_occurrences` to `at_least_once`
 13. Delete the entire `warning` block, we dont' care about warnings for this example.
-
 
 Run `terraform apply` and you should see the condtion created:
 ```newrelic_nrql_alert_condition.demo: Creating...
