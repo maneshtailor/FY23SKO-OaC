@@ -123,7 +123,7 @@ As with the previous task we'll use this example code as a basis for our own and
 
 1. Change the resource name from "foo" to "sko_slack" (note the underscore here!)
 2. `name': Set this to the value "YOURNAME SKO Slack Channel" - this is the name that will appear in the New Relic UI
-3. `config.url` Set this to: `https://hooks.slack.com/services/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`
+3. `config.url` Set this to: `HOOK VALUE SUPPLIED DURING SESSION`
 4. `config.channel` Set this to `sko-oac`
 
 Run `terraform apply` and observe the notification channel has been created in the UI.
