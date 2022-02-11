@@ -1,5 +1,5 @@
 # Part 4: Creating New Relic Resources with Terraform
-In this exercise we are going to create and alert and dashboard in New Relic via terraform and we'll test it works by sending some test data.
+In this exercise we are going to create an alert and dashboard in New Relic via terraform and we'll test it works by sending some test data.
 
 Pre-requsites:
 
