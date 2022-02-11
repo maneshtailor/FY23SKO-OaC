@@ -161,7 +161,7 @@ newrelic_alert_policy.policy.id
 ## Step 6: Testing the alert
 Everything is now setup and our alert policy and condition is diligently looking for problems. Lets send some data to trigger the alert and light up the slack channel.
 
-Update this command with a API License key and your account ID, then run it a few times in your terminal to generate data. You should shortly see your alert policy trigger.
+Update this command with a API License key (remember, this is your Ingest Licence key and not User Licence Key) and your account ID, then run it a few times in your terminal to generate data. You should shortly see your alert policy trigger.
 
 ```
 curl -X POST -H "Content-Type: application/json" \
